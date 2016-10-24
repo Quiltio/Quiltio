@@ -1,0 +1,25 @@
+{
+  "name": "quiltio-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/stalinb87/Quiltio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stalinb87/Quiltio/issues"
+  },
+  "homepage": "https://github.com/stalinb87/Quiltio#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "feathers": "^2.0.2",
+    "feathers-hooks": "^1.5.8",
+    "feathers-rest": "^1.5.1"
+  }
+}
