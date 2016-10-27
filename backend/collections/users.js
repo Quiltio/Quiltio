@@ -8,7 +8,7 @@ module.exports = function(mongoose) {
         photo: {
             type: Schema.Types.ObjectId,
             ref: 'File'
-        }
+        },
         email: {
             type: String,
             unique: true,
