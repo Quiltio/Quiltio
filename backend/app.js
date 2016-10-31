@@ -1,6 +1,5 @@
 const feathers = require('feathers');
 const rest = require('feathers-rest');
-const authentication = require('feathers-authentication');
 const hooks = require('feathers-hooks');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -21,7 +20,7 @@ app.configure(hooks());
 
 // Add REST API support
 app.configure(rest());
-app.configure(authentication());
+
 //start database
 database(app, mongoose);
 
