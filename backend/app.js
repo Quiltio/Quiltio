@@ -1,9 +1,11 @@
 const feathers = require('feathers');
 const rest = require('feathers-rest');
+const authentication = require('feathers-authentication');
 const hooks = require('feathers-hooks');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const database = require('./collections');
+const routes = require('./route');
 mongoose.connect('mongodb://localhost/quiltio');
 
 const app = feathers();
@@ -16,8 +18,13 @@ app.use(bodyParser.urlencoded({
 
 app.configure(hooks());
 
+
 // Add REST API support
 app.configure(rest());
-
+app.configure(authentication());
 //start database
 database(app, mongoose);
+
+routes(app, mongoose);
+
+app.listen(3000, () => console.log('app listen on port 3000'));

@@ -20,7 +20,9 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "feathers": "^2.0.2",
+    "feathers-authentication": "^0.7.11",
     "feathers-hooks": "^1.5.8",
+    "feathers-mongoose": "^3.5.3",
     "feathers-rest": "^1.5.1",
     "mongoose": "^4.6.5"
   },
