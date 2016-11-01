@@ -1,13 +1,15 @@
 let hash = require('./hash');
 const jwt = require('jwt-simple');
 const secret = '576F25A1574FE9EAABDD4A28288F3';
-module.exports = (app, mongoose) => {
-    const User = mongoose.model('User');
+const mongoose = require('mongoose');
+module.exports = (app) => {
+
     return {
-        login: function(username, password) {
+        login: function(email, password) {
+            let User = mongoose.model('User');
             password = hash.sha1(password);
             return User.findOne({
-                username,
+                email,
                 password
             }).exec().then(user => {
                 if (user) {

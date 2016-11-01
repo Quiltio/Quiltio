@@ -9,6 +9,7 @@ module.exports = function(mongoose) {
             type: Schema.Types.ObjectId,
             ref: 'File'
         },
+        password: String,
         email: {
             type: String,
             unique: true,
