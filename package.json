@@ -1,0 +1,49 @@
+{
+  "name": "quiltio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephvelazquez/Quiltio.git"
+  },
+  "author": "Stalin Bonilla, Stephanie Velazquez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stephvelazquez/Quiltio/issues"
+  },
+  "homepage": "https://github.com/stephvelazquez/Quiltio#readme",
+  "dependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.1",
+    "redux": "^3.6.0",
+    "redux-form": "^6.1.1",
+    "redux-persist": "^4.0.0-alpha6",
+    "redux-thunk": "^2.1.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "devDependencies": {
+    "axios": "^0.15.2",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "react-loader": "^2.4.0",
+    "react-redux": "^4.4.5",
+    "react-redux-form": "^1.0.14",
+    "react-router": "^2.8.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
