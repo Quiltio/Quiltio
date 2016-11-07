@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const database = require('./collections');
 const routes = require('./route');
 mongoose.connect('mongodb://localhost/quiltio');
-
+mongoose.Promise = Promise;
 const app = feathers();
 
 app.use(bodyParser.json());

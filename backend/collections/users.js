@@ -1,4 +1,4 @@
-module.exports = function(mongoose) {
+module.exports = function (mongoose) {
     const Schema = mongoose.Schema;
     let User = new Schema({
         name: {
@@ -16,7 +16,7 @@ module.exports = function(mongoose) {
         },
         job: String,
         industry: String,
-        location: String,
+        location: {},
         areas: [{
             type: String
         }]
