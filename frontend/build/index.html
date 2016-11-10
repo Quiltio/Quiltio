@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="quiltio" ng-controller="AppController">
+<head>
+    <title ng-bind="pageTitle"></title>
+
+    <!-- font awesome from BootstrapCDN -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- compiled CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/quiltio-0.0.1.css" />
+
+    <!-- compiled JavaScript -->
+    <script type="text/javascript" src="vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="src/app/home/home.module.js"></script>
+    <script type="text/javascript" src="src/app/profile/profile.module.js"></script>
+    <script type="text/javascript" src="src/app/team/team.module.js"></script>
+    <script type="text/javascript" src="src/app/app.js"></script>
+    <script type="text/javascript" src="src/app/home/home.js"></script>
+    <script type="text/javascript" src="src/app/mockApp.js"></script>
+    <script type="text/javascript" src="src/app/profile/profile.js"></script>
+    <script type="text/javascript" src="src/app/team/team.js"></script>
+    <script type="text/javascript" src="templates-common.js"></script>
+    <script type="text/javascript" src="templates-app.js"></script>
+</head>
+<body>
+    <header style="position:relative;z-index:100">
+
+        <nav class="navbar-main container-fluid navbar-default">
+           <a class="navbar-brand" href="#">Logo</a>
+
+           <a href="#" class="btn btn-primary pull-right navbar-btn">Sign in</a>
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <a ui-sref="home">Home</a>
+                </li>
+                <li>
+                    <a ui-sref="team">Teams</a>
+                </li>
+                <li>
+                    <a ui-sref="profile">Sign in</a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <div class="container-fluid" style="height: calc(100% - 50px);" ui-view="main"></div>
+
+</body>
+</html>
