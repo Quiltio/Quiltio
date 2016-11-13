@@ -1,0 +1,6 @@
+{
+  "generator-ngbp": {
+    "projectName": "quiltio",
+    "useCoffeescript": false
+  }
+}
