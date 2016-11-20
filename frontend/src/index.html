@@ -18,7 +18,7 @@
         <nav class="navbar-main container-fluid navbar-default">
 
 
-           <a href="#" class="btn btn-primary pull-right navbar-btn">Sign in</a>
+           <a ui-sref="auth.sign" class="btn btn-primary pull-right navbar-btn">Sign in</a>
             <ul class="nav navbar-nav pull-right">
                 <li>
                     <a ui-sref="home">Home</a>
@@ -26,14 +26,18 @@
                 <li>
                     <a ui-sref="team">Teams</a>
                 </li>
-          
+
             </ul>
 
         </nav>
     </header>
 
+    <div class="bg" ng-class="{bluer:bluer}">
 
-    <div class="container-fluid" style="height: calc(100% - 50px);" ui-view="main"></div>
+    </div>
+    <div class="main-view container-fluid" style="height: calc(100% - 50px);" ui-view="main" >
+
+    </div>
 
 </body>
 </html>

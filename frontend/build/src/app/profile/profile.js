@@ -1,6 +1,6 @@
 (function (app) {
 
-    app.controller('ProfileController', ['$scope', function ($scope) {
+    app.controller('ProfileController', function ($scope) {
         var model = this;
 
         init();
@@ -10,6 +10,6 @@
             //  writing any code outside of this function that executes immediately.
         }
 
-    }]);
+    });
 
 }(angular.module("quiltio.profile")));

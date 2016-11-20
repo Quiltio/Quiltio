@@ -1,3 +1,26 @@
-<h1>Team</h1>
+<div class="team">
+    <h3 class="pull-left">Companies</h3>
+    <div class="form-group pull-right">
+      <input type="search" name="name" value="" class="form-control" placeholder="Search...">
+    </div>
+    <div class="clearfix">
 
-<p>This is what this is team.</p>
+    </div>
+    <div class="row">
+        <div class="col col-md-4" ng-repeat="i in [1,2,3,4,5,6,7,8,9]">
+            <div class="card card-1 no-padding">
+                <div class="card-image">
+                    <img src="http://placehold.it/130x145" alt="" />
+                </div>
+                <div class="card-container">
+                    <h4>Company {{$index + 1}}</h4>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </p>
+                    <button class="btn btn-danger">Join</button>
+                    <button class="btn btn-default">Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
