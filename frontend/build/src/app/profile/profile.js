@@ -1,6 +1,6 @@
 (function (app) {
 
-    app.controller('ProfileController', function ($stateParams, $http, growl, $q, Server, $scope) {
+    app.controller('ProfileController', ['$stateParams', '$http', 'growl', '$q', 'Server', '$scope', function ($stateParams, $http, growl, $q, Server, $scope) {
         var promise;
         var model = this;
         if ($stateParams.id) {
@@ -16,6 +16,6 @@
             growl.info('Error loading profile or not exist');
             $state.go('home');
         });
-    });
+    }]);
 
 }(angular.module("quiltio.profile")));

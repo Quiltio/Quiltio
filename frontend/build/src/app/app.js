@@ -1,18 +1,18 @@
 (function (app) {
     app.constant('Server', {
-        path: 'http://localhost:3000/api'
+        path: location.protocol + '//' + location.host + '/api' //'http://localhost:3000/api'
     });
-    app.config(function ($stateProvider, $authProvider, $urlRouterProvider, growlProvider, Server) {
+    app.config(['$stateProvider', '$authProvider', '$urlRouterProvider', 'growlProvider', 'Server', function ($stateProvider, $authProvider, $urlRouterProvider, growlProvider, Server) {
         $urlRouterProvider.otherwise('/home');
         $authProvider.baseUrl = Server.path;
         $authProvider.loginUrl = '/auth/local';
         growlProvider.globalTimeToLive(10000);
         // auth/local
-    });
+    }]);
 
     app.run(function () {});
 
-    app.controller('AppController', function ($scope, $rootScope, $state, $auth) {
+    app.controller('AppController', ['$scope', '$rootScope', '$state', '$auth', function ($scope, $rootScope, $state, $auth) {
         $scope.bluer = false;
         $scope.isAuthenticated = $auth.isAuthenticated();
         $scope.user = $auth.getPayload();
@@ -36,7 +36,7 @@
                 $scope.bluer = true;
             }
         });
-    });
+    }]);
 
 }(angular.module("quiltio", [
     'angular-growl',

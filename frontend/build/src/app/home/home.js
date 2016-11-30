@@ -13,10 +13,10 @@
 
     // As you add controllers to a module and they grow in size, feel free to place them in their own files.
     //  Let each module grow organically, adding appropriate organization and sub-folders as needed.
-    module.controller('HomeController', function ($auth) {
+    module.controller('HomeController', ['$auth', function ($auth) {
         var model = this;
         model.isAuthenticated = $auth.isAuthenticated();
-    });
+    }]);
 
     // The name of the module, followed by its dependencies (at the bottom to facilitate enclosure)
 }(angular.module("quiltio.home")));

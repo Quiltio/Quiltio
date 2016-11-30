@@ -2,7 +2,7 @@
     module.controller('auth', function () {
 
     });
-    module.controller('register', function ($http, Server, growl, $state) {
+    module.controller('register', ['$http', 'Server', 'growl', '$state', function ($http, Server, growl, $state) {
         var model = this;
         model.register = function () {
             $http.post(Server.path + '/user', model.user).then(function () {
@@ -12,8 +12,8 @@
                 console.error(err);
             });
         };
-    });
-    module.controller('sign', function ($auth, growl, $state) {
+    }]);
+    module.controller('sign', ['$auth', 'growl', '$state', function ($auth, growl, $state) {
         var model = this;
         model.auth = function () {
             $auth.login(model.user).then(function (response) {
@@ -23,5 +23,5 @@
                 growl.error(err.data.error);
             });
         };
-    });
+    }]);
 }(angular.module('quiltio.auth')));

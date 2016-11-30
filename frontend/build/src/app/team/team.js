@@ -1,9 +1,9 @@
 (function (app) {
 
-    app.controller('team', function ($scope) {
+    app.controller('team', ['$scope', function ($scope) {
         console.log('team');
-    });
-    app.controller('teamList', function ($http, Server, growl, $scope) {
+    }]);
+    app.controller('teamList', ['$http', 'Server', 'growl', '$scope', function ($http, Server, growl, $scope) {
         var model = this;
         $http.get(Server.path + '/team').then(function (response) {
             model.teams = response.data.map(function (team) {
@@ -62,8 +62,8 @@
             });
             return isM;
         };
-    });
-    app.controller('teamDetail', function ($http, Server, $state, $stateParams, growl) {
+    }]);
+    app.controller('teamDetail', ['$http', 'Server', '$state', '$stateParams', 'growl', function ($http, Server, $state, $stateParams, growl) {
         var model = this;
         $http.get(Server.path + '/team/' + $stateParams.id).then(function (response) {
             var team = response.data;
@@ -79,8 +79,8 @@
             $state.go('team.list');
         });
 
-    });
-    app.controller('teamCreate', function ($http, $state, growl, Server) {
+    }]);
+    app.controller('teamCreate', ['$http', '$state', 'growl', 'Server', function ($http, $state, growl, Server) {
         var model = this;
         model.create = function () {
             $http.post(Server.path + '/team', model.team).then(function (response) {
@@ -93,6 +93,6 @@
             });
         };
         console.log('team create');
-    });
+    }]);
 
 }(angular.module("quiltio.team")));

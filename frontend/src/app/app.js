@@ -1,6 +1,6 @@
 (function (app) {
     app.constant('Server', {
-        path: 'http://localhost:3000/api'
+        path: location.protocol + '//' + location.host + '/api' //'http://localhost:3000/api'
     });
     app.config(function ($stateProvider, $authProvider, $urlRouterProvider, growlProvider, Server) {
         $urlRouterProvider.otherwise('/home');

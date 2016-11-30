@@ -9,6 +9,8 @@ const cors = require('cors');
 mongoose.connect('mongodb://localhost/quiltio');
 mongoose.Promise = Promise;
 const app = feathers();
+app.use('/assets', feathers.static('assets'));
+
 app.use(cors());
 app.use(bodyParser.json());
 // Parse URL-encoded params
@@ -44,6 +46,9 @@ app.use(function (req, res, next) {
 
 
 routes(app, mongoose);
+app.get('/', function (req, res, next) {
+    res.sendFile(__dirname + '/index.html');
+});
 app.use(function (err, req, res, next) {
     console.error(err.stack);
     console.error(err);

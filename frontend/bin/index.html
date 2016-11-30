@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="quiltio" ng-controller="AppController">
+<head>
+    <title ng-bind="pageTitle"></title>
+
+    <!-- font awesome from BootstrapCDN -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- compiled CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/quiltio-0.0.1.css" />
+
+    <!-- compiled JavaScript -->
+    <script type="text/javascript" src="assets/quiltio-0.0.1.js"></script>
+</head>
+<body>
+     <div growl></div>
+    <header style="position:relative;z-index:100">
+
+        <nav class="navbar-main container-fluid navbar-default">
+
+
+           <a ng-hide="isAuthenticated" ui-sref="auth.sign" class="btn btn-primary pull-right navbar-btn">Sign in</a>
+           <span class="user btn btn-link pull-right navbar-btn" ng-show="isAuthenticated">{{user.name}} (<a ng-show="isAuthenticated" ng-click="logout()">Logout</a>)</span>
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <a ui-sref="home">Home</a>
+                </li>
+                <li>
+                    <a ui-sref="team.list">Teams</a>
+                </li>
+
+            </ul>
+
+        </nav>
+    </header>
+
+    <div class="bg" ng-class="{bluer:bluer}">
+
+    </div>
+    <div class="main-view container-fluid" style="height: calc(100% - 50px);" ui-view="main" >
+
+    </div>
+
+</body>
+</html>
