@@ -1,0 +1,19 @@
+{
+  "name": "quiltio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stalinb87/Quiltio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stalinb87/Quiltio/issues"
+  },
+  "homepage": "https://github.com/stalinb87/Quiltio#readme"
+}
