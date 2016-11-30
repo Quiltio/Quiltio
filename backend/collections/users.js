@@ -1,4 +1,5 @@
 module.exports = function (mongoose) {
+    let hash = require('../lib/hash');
     const Schema = mongoose.Schema;
     let User = new Schema({
         name: {
@@ -22,6 +23,10 @@ module.exports = function (mongoose) {
             type: String
         }]
 
+    });
+    User.pre('save', function (next) {
+        this.password = hash.sha1(this.password);
+        next();
     });
     return mongoose.model('User', User);
 };

@@ -1,4 +1,4 @@
-module.exports = function(mongoose) {
+module.exports = function (mongoose) {
     const Schema = mongoose.Schema;
     let Team = new Schema({
         name: {
@@ -10,9 +10,14 @@ module.exports = function(mongoose) {
             type: Schema.Types.ObjectId,
             ref: 'File'
         },
+        website: String,
+        lead: {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        },
         members: [{
             type: Schema.Types.ObjectId,
-            ref: 'Team'
+            ref: 'User'
         }]
 
 

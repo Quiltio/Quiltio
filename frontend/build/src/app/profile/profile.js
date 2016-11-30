@@ -1,15 +1,21 @@
 (function (app) {
 
-    app.controller('ProfileController', function ($scope) {
+    app.controller('ProfileController', function ($stateParams, $http, growl, $q, Server, $scope) {
+        var promise;
         var model = this;
-
-        init();
-
-        function init() {
-            // A definitive place to put everything that needs to run when the controller starts. Avoid
-            //  writing any code outside of this function that executes immediately.
+        if ($stateParams.id) {
+            promise = $http.get(Server.path + '/user/' + $stateParams.id).then(function (response) {
+                return response.data;
+            });
+        } else {
+            promise = $q.when($scope.user);
         }
-
+        promise.then(function (user) {
+            model.user = user;
+        }).catch(function () {
+            growl.info('Error loading profile or not exist');
+            $state.go('home');
+        });
     });
 
 }(angular.module("quiltio.profile")));

@@ -4,6 +4,7 @@ module.exports = (app, mongoose) => {
     const appId = '7753rv9ux2w99w';
     const secret = 'stSyhTo0oIkV9wx4';
     const Linkedin = require('node-linkedin')(appId, secret);
+    const middlewares = require('./lib/hook')(app);
     let User = mongoose.model('User');
     const auth = require('./lib/auth')(app, mongoose);
     app.use('/api/user', mongooseService({
@@ -14,11 +15,30 @@ module.exports = (app, mongoose) => {
     app.use('/api/team', mongooseService({
         Model: Team
     }));
-
+    var teamService = app.service('/api/team');
+    teamService.hooks({
+        before: {
+            find: function (hook, next) {
+                hook.params.query.$populate = ['lead', 'members'];
+                next();
+            },
+            get: function (hook, next) {
+                hook.params.query.$populate = ['lead', 'members'];
+                next();
+            },
+            create: [middlewares.authorize, function (hook, next) {
+                hook.data.lead = hook.params.user;
+                next();
+            }],
+            update: [middlewares.authorize],
+            patch: [middlewares.authorize],
+            remove: [middlewares.authorize]
+        }
+    })
     app.post('/api/auth/local', (req, res, next) => {
-        let username = req.body.username;
+        let email = req.body.email;
         let password = req.body.password;
-        auth.login(username, password).then(response => {
+        auth.login(email, password).then(response => {
             res.json(response);
         }).catch(next);
     });
@@ -35,7 +55,7 @@ module.exports = (app, mongoose) => {
     });
 
     app.get('/api/auth/linkedin/callback', (req, res, next) => {
-        Linkedin.auth.getAccessToken(req.query.code, req.query.state, function(err, response) {
+        Linkedin.auth.getAccessToken(req.query.code, req.query.state, function (err, response) {
             if (err) {
                 res.status(500);
                 return res.json({
@@ -44,7 +64,7 @@ module.exports = (app, mongoose) => {
                 });
             }
             const linkedin = Linkedin.init('AQVa7syi7EN3ivij83eA6kxkjZrE8IL9e_SthuGZFyPH8BmghLNAlu8sV0FT3WXV0k68d5K5qzu1X2027K0Yez_QWfJBkJKYH5dRpoZaraumZNjUJeL-fiGRCuwluQTxh4k5m2M4f40-t6Hy0lc-CSXbS_x2xr3vHtYNbCvMVH_yXEezK50');
-            linkedin.people.me(function(err, user) {
+            linkedin.people.me(function (err, user) {
                 if (err) {
                     res.status(500);
                     return res.json({
@@ -54,7 +74,7 @@ module.exports = (app, mongoose) => {
                 }
                 auth.linkedin(user).then(response => {
                     res.json(response);
-                }).catch(function(err) {
+                }).catch(function (err) {
                     console.log(err);
                     console.log(err.stack);
                     next(err);

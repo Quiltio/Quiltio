@@ -5,10 +5,10 @@ module.exports = (app) => {
     const mongoose = require('mongoose');
     const User = mongoose.model('User');
     return {
-        login: function(username, password) {
+        login: function (email, password) {
             password = hash.sha1(password);
             return User.findOne({
-                username,
+                email: email,
                 password
             }).exec().then(user => {
                 if (user) {
@@ -18,13 +18,15 @@ module.exports = (app) => {
                         token
                     };
                 }
-                return Promise.reject('INVALID_USERNAME_PASSWORD');
+                let error = new Error('Username and/or password are incorrect');
+                error.status = 401;
+                return Promise.reject(error);
             });
         },
-        linkedin: function(usr) {
+        linkedin: function (usr) {
             return User.findOne({
                 email: usr.emailAddress
-            }).exec().then(function(user) {
+            }).exec().then(function (user) {
                 if (user) {
                     let token = jwt.encode(user, secret);
                     return {
@@ -41,7 +43,7 @@ module.exports = (app) => {
                         pictureUrl: usr.pictureUrl
                     };
                     let Usr = new User(user);
-                    return Usr.save().then(function(user) {
+                    return Usr.save().then(function (user) {
                         let token = jwt.encode(user, secret);
                         return {
                             token,
@@ -51,7 +53,7 @@ module.exports = (app) => {
                 }
             });
         },
-        validate: function(token) {
+        validate: function (token) {
             var decoded = jwt.decode(token, secret);
             return decoded;
         }

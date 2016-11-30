@@ -3,26 +3,26 @@
         <div class="col col-md-4 col-md-offset-4">
             <div class="card card-1">
               <h3>Registration</h3>
-                <form>
+                <form ng-submit="model.register()">
                     <div class="form-group">
                         <label for="full-name">Full Name</label>
-                        <input type="text" class="form-control" id="full-name" placeholder="Full Name">
+                        <input type="text" class="form-control" id="full-name" placeholder="Full Name" ng-model="model.user.name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Email">
+                        <input type="email" class="form-control" id="email" placeholder="Email" ng-model="model.user.email">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" class="form-control">
+                        <input type="password" id="password" class="form-control" ng-model="model.user.password">
                     </div>
                     <div class="form-group">
                         <label for="job">Job</label>
-                        <input type="text" class="form-control" id="job" placeholder="Job">
+                        <input type="text" class="form-control" id="job" placeholder="Job" ng-model="model.user.job">
                     </div>
                     <div class="form-group">
                         <label for="industry">Industry</label>
-                        <input type="text" class="form-control" id="industry" placeholder="Industry">
+                        <input type="text" class="form-control" id="industry" placeholder="Industry" ng-model="model.user.industry">
                     </div>
                     <div class="pull-right">
                         <button type="button" class="btn btn-primary">Register with Linkdin</button>

@@ -13,18 +13,20 @@
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
 </head>
 <body>
+     <div growl></div>
     <header style="position:relative;z-index:100">
 
         <nav class="navbar-main container-fluid navbar-default">
 
 
-           <a ui-sref="auth.sign" class="btn btn-primary pull-right navbar-btn">Sign in</a>
+           <a ng-hide="isAuthenticated" ui-sref="auth.sign" class="btn btn-primary pull-right navbar-btn">Sign in</a>
+           <span class="user btn btn-link pull-right navbar-btn" ng-show="isAuthenticated">{{user.name}} (<a ng-show="isAuthenticated" ng-click="logout()">Logout</a>)</span>
             <ul class="nav navbar-nav pull-right">
                 <li>
                     <a ui-sref="home">Home</a>
                 </li>
                 <li>
-                    <a ui-sref="team">Teams</a>
+                    <a ui-sref="team.list">Teams</a>
                 </li>
 
             </ul>

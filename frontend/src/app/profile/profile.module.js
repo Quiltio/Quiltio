@@ -2,7 +2,7 @@
 
     module.config(function ($stateProvider) {
         $stateProvider.state('profile', {
-            url: '/profile',
+            url: '/profile/:id?',
             views: {
                 "main": {
                     controller: 'ProfileController as model',

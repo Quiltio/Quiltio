@@ -1,0 +1,30 @@
+<div class="team-list">
+
+    <h3 class="pull-left">Teams</h3>
+    <div class="form-group pull-right">
+        <input type="search" name="name" value="" class="form-control" placeholder="Search..." ng-model="filter">
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        <div class="col col-md-4" ng-repeat="team in model.teams | filter:filter">
+            <div class="card card-1 no-padding">
+                <div class="card-image">
+                    <img src="http://placehold.it/130x145" alt=""/>
+                </div>
+                <div class="card-container">
+                    <h4>{{team.name}}</h4>
+                    <p>
+                        {{team.description}}
+                    </p>
+                    <button ng-hide="team.isMember" class="btn btn-danger" ng-click="model.join(team)" >Join</button>
+                    <button ng-show="team.isMember" class="btn btn-danger" ng-click="model.leave(team)" >Leave</button>
+                    <button class="btn btn-default" ui-sref="team.detail({id:team._id})">Details</button>
+                </div>
+            </div>
+        </div>
+        <div class="" ng-show="model.teams.length === 0">
+          <h5 >Not team found</h5>
+        </div>
+    </div>
+
+</div>

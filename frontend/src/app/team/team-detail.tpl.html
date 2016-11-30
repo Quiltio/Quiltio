@@ -1,0 +1,60 @@
+<div class="team-detail">
+    <div class="cover-image">
+        <!-- <img src="assets/bg.jpg" alt=""/> -->
+    </div>
+    <div class="container">
+        <div class="row team-info">
+            <div class="col col-md-3 team-basic">
+                <div class="card card-1 no-padding">
+                    <img src="http://placehold.it/295x300" alt=""/>
+                    <div class="card-container">
+                        <h4>Description</h4>
+                        {{model.team.description}}
+                    </div>
+                </div>
+            </div>
+            <div class="col col-md-9 team-detail">
+                <div class="row">
+                    <div class="col col-md-12 team-name">
+                        <h2>{{model.team.name}}</h2>
+                        <a href="{{model.team.website}}">{{model.team.website}}</a>
+                    </div>
+                    <div class="col col-md-12 team-members">
+                        <h3>Members</h3>
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <div class="wrapper">
+
+                                    <div class="col col-md-4">
+                                        <div class="member-detail" ui-sref="profile({id:model.team.lead._id})">
+                                            <img src="http://placehold.it/48x48" alt=""/>
+                                            <div class="">
+                                                <h4>{{model.team.lead.name}} <small>(lead)</small></h4>
+                                                <p>{{model.team.lead.industry}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col col-md-4" ng-repeat="member in model.team.members">
+                                        <div class="member-detail" ui-sref="profile({id:member._id})">
+                                            <img src="http://placehold.it/48x48" alt=""/>
+                                            <div class="">
+                                                <h4>{{member.name}}</h4>
+                                                <p>{{member.industry}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

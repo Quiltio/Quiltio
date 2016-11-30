@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-md-4 col-md-offset-4">
+            <div class="card card-1">
+                <h3>Create a Team</h3>
+                <form ng-submit="model.create()">
+                    <div class="form-group">
+                        <label for="full-name">Team Name</label>
+                        <input type="text" class="form-control" id="full-name" placeholder="Full Name" ng-model="model.team.name">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" class="form-control" rows="3" ng-model="model.team.description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="website">Website</label>
+                        <input type="url" class="form-control" id="website" placeholder="Website" ng-model="model.team.website">
+                    </div>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-default">Return</button>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

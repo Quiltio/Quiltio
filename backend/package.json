@@ -19,6 +19,7 @@
   "homepage": "https://github.com/stalinb87/Quiltio#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
     "feathers": "^2.0.2",
     "feathers-authentication": "^0.7.11",
     "feathers-hooks": "^1.5.8",

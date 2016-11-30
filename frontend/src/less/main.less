@@ -8,6 +8,7 @@
  * project should be imported as the rest are just wasting space.
  */
 @import '../../vendor/bootstrap/less/bootstrap.less';
+@import (inline) '../../vendor/angular-growl-v2/build/angular-growl.min.css';
 /**
  * This is our main variables file. We must include it last so we can overwrite any variable
  * definitions in our imported stylesheets.
@@ -33,6 +34,15 @@ html {
 .navbar-main {
     background-color: rgba(255,255,255,0.2);
     position: relative;
+}
+
+.growl-container {
+    margin-top: 50px;
+}
+
+.navbar-default .user.btn-link:hover {
+    color: #777;
+    text-decoration: none;
 }
 /**
  * Now that all app-wide styles have been applied, we can load the styles for
